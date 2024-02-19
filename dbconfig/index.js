@@ -1,12 +1,8 @@
 const Sequelize = require('sequelize');
 
-const db_name = "contacts-express";
-const db_host = "localhost";
-const db_port = 5432;
-
-const sequelize = new Sequelize('contacts-express', 'youssef.zahran', null, {
-    host: db_host,
-    port: db_port,
+const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_NAME, null, {
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
     dialect: 'postgres'
 });
 
@@ -17,14 +13,14 @@ async function setupDatabase() {
         await sequelize.authenticate();
         console.log('Connection has been established successfully.');
 
-        const [results, metadata] = await sequelize.query(`SELECT datname FROM pg_catalog.pg_database WHERE datname = '${db_name}'`);
+        const [results, metadata] = await sequelize.query(`SELECT datname FROM pg_catalog.pg_database WHERE datname = '${process.env.DB_NAME}'`);
 
         if (results.length === 0) {
-            console.log(`${db_name} database not found, creating it.`);
-            await sequelize.query(`CREATE DATABASE "${db_name}";`);
-            console.log(`Created database ${db_name}.`);
+            console.log(`${process.env.DB_NAME} database not found, creating it.`);
+            await sequelize.query(`CREATE DATABASE "${process.env.DB_NAME}";`);
+            console.log(`Created database ${process.env.DB_NAME}.`);
         } else {
-            console.log(`${db_name} database already exists.`);
+            console.log(`${process.env.DB_NAME} database already exists.`);
         }
 
     } catch (error) {

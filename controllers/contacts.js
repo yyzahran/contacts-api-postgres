@@ -3,7 +3,8 @@ const { v4: uuidv4 } = require('uuid');
 const { StatusCodes } = require('http-status-codes')
 const Users = require('../models/users');
 const Contacts = require('../models/contacts');
-const { serializeContact, validateEmail, getContact, deserializeContact, getAllContacts, getContactById, removeContact, updateContactDetails } = require('../services/utils');
+const { serializeContact, validateEmail, getContact, 
+    getAllContacts, getContactById, removeContact, updateContactDetails } = require('../services/utils');
 
 const createContact = async (req, res) => {
     const contactId = uuidv4()

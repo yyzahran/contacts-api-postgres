@@ -2,7 +2,8 @@ const { v4: uuidv4 } = require('uuid');
 const { StatusCodes } = require('http-status-codes')
 const Users = require('../models/users');
 const { BadRequestError } = require('../errors');
-const { createJWT, validateEmail, getUser, serializeUser, comparePassword } = require('../services/utils');
+const { createJWT, validateEmail, getUser,
+    serializeUser, comparePassword } = require('../services/utils');
 
 const register = async (req, res) => {
     const { name, email, password } = req.body;

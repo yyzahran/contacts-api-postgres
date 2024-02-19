@@ -2,7 +2,6 @@
 <h1 align="center">NodeJS, Express, and Postgres App</h1>
 
   <p align="center">
-    
 
   </p>
 </div>
@@ -37,17 +36,17 @@ This is an API for an app where a user can register/login and CRUD contacts.
 
 ## Getting Started
 
-This section is to walk you through the setup for running the automation tests.
+This section is to walk you through the setup for the app
 
 ### Prerequisites
 
-You'll need NodeJS and a functioning Redis server to run this app.
+You'll need NodeJS and a functioning Postgres database to run this app.
 
 ### Installation
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/yyzahran/conacts-api-redis.git
+   git clone https://github.com/yyzahran/conacts-api-postgres.git
    ```
 2. Install requirements
    ```sh
@@ -55,7 +54,9 @@ You'll need NodeJS and a functioning Redis server to run this app.
    ```
 3. Update the parameters in `.env`
 
-4. Run the command
+4. Run the commands in `/sql/sql.init` in the Postgres database you will work with
+
+5. Run the command
    ```sh
    npm start
    ```
@@ -69,21 +70,21 @@ You'll need NodeJS and a functioning Redis server to run this app.
 
 - The controllers for auth and contacts can be found at `/controllers`
 - Different error types are at `/errors`
+- Postgres config is in `/dbconfig/index.js`
 - Middleware for authentication and Express error handling are at `/middleware`
 - There are two routes for the app, `/auth` and `/contacts` that are at `/routes`
-- Services include the Redis setup, including keys and types
 - Helper methods are at `/services/utils.js`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Usage
 
-Import the Postman collection at `contacts-api-redis.postman_collection.json` to Postman and start testing the endpoints.
+Import the Postman collection at `contacts-api-postgres.postman_collection` to Postman and start testing the endpoints.
 
 ## Contact
 
 Youssef Zahran - youssefyzahran@gmail.com - [LinkedIn](https://www.linkedin.com/in/yzahran/)
 
-Project link: [https://github.com/yyzahran/conacts-api-redis](https://github.com/yyzahran/conacts-api-redis)
+Project link: [https://github.com/yyzahran/conacts-api-postgres](https://github.com/yyzahran/conacts-api-postgres)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
