@@ -2,40 +2,42 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../dbconfig');
 const Users = require('./users');
 
-const Contacts = sequelize.define('contacts', {
-    id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
+const Contacts = sequelize.define(
+    'contacts',
+    {
+        id: {
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true,
+        },
+        contactName: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        phoneNumber: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        createdBy: {
+            type: DataTypes.UUID,
+            allowNull: false,
+            references: {
+                model: Users,
+                key: 'id',
+            },
+        },
     },
-    contactName: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    phoneNumber: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    createdBy: {
-        type: DataTypes.UUID,
-        allowNull: false,
-        references: {
-            model: Users,
-            key: 'id'
-        }
-    }
-},
     {
         freezeTableName: true,
-        timestamps: false
-    },
+        timestamps: false,
+    }
 );
 
-module.exports = Contacts
+module.exports = Contacts;
 
 // sequelize.sync()
 //   .then(() => {
