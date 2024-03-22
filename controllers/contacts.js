@@ -14,7 +14,6 @@ const {
 } = require('../services/utils');
 
 const createContact = async (req, res) => {
-    const contactId = uuidv4();
     const { userId, name: userName } = req.user;
     const { name: contactName, phoneNumber, email: contactEmail } = req.body;
 
@@ -49,7 +48,7 @@ const createContact = async (req, res) => {
     console.log(12121);
 
     console.log('Contact added successfully:', contactName);
-    res.status(StatusCodes.OK).json({ contactId });
+    res.status(StatusCodes.OK).send(`Contact ${contactName} created`);
 };
 
 const fetchContact = async (req, res) => {
